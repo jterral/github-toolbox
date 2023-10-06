@@ -14,3 +14,7 @@ $> cd github-toolbox
 $> yarn install
 $> yarn start --owner <OWNER> --repo <REPO> --token <ghp_TOKEN>
 ```
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
