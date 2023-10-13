@@ -2,15 +2,20 @@ import { Octokit } from "octokit";
 import { Command, Option } from "commander";
 
 const my_labels = [
-  { name: "type:bug", description: "Something isn't working", color: "#795548" },
-  { name: "type:enhancement", description: "New feature or request", color: "#00E676" },
-  { name: "type:refactoring", description: "Code refactoring", color: "#8BC34A" },
-  { name: "type:documentation", description: "Improvements or additions to documentation", color: "#039BE5" },
-  { name: "type:dependencies", description: "Updates of dependencies", color: "#00E5FF" },
+  // GitHub labels
+  { name: "bug", description: "Something isn't working", color: "#d73a4a" },
+  { name: "documentation", description: "Improvements or additions to documentation", color: "#0075ca" },
+  { name: "duplicate", description: "This issue or pull request already exists", color: "#cfd3d7" },
+  { name: "enhancement", description: "New feature or request", color: "#a2eeef" },
+  { name: "good first issue", description: "Good for newcomers", color: "#7057ff" },
+  { name: "help wanted", description: "Extra attention is needed", color: "#008672" },
+  { name: "invalid", description: "This doesn't seem right", color: "#e4e669" },
+  { name: "question", description: "Further information is requested", color: "#d876e3" },
+  { name: "wontfix", description: "This will not be worked on", color: "#ffffff" },
 
-  { name: "priority:high", description: "High priority", color: "#FF1744" },
-  { name: "priority:medium", description: "Medium priority", color: "#FF9100" },
-  { name: "priority:low", description: "Low priority", color: "#FFEA00" },
+  // My custom labels
+  { name: "refactoring", description: "Code refactoring", color: "#8BC34A" },
+  { name: "dependencies", description: "Updates of dependencies", color: "#00E5FF" },
 ];
 
 // ----------
@@ -48,7 +53,7 @@ async function _deleteNotUsedLabels(octokit, owner, repo, labels) {
   for (var label of labels) {
     var isUsed = my_labels.some((l) => l.name === label.name);
     if (!isUsed) {
-      console.log(`==> Deleting unused label ${label.name}...`);
+      console.log(`==> Deleting label ${label.name}...`);
       await _deleteLabel(octokit, owner, repo, label);
     }
   }
