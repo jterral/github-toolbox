@@ -1,21 +1,7 @@
 import { Octokit } from "octokit";
 import { Command, Option } from "commander";
 
-const repositories = [
-  "care-yoda-bo-front",
-  "care-yoda-service",
-  "care-player-activity-service",
-  "care-kyc-service",
-  "care-kyc-worker",
-  "care-risk-service",
-  "care-risk-worker",
-  "care-gdpr-worker",
-  "care-mails-import-worker",
-  "care-yoda-backend-service",
-  "care-internal-tools",
-  "care-doc-operations",
-  "care-supervision-dashboard",
-];
+const repositories = [];
 
 // ----------
 async function run(owner, access_token) {
