@@ -5,7 +5,7 @@ const repositories = [];
 
 // ----------
 async function run(owner, access_token) {
-  console.log("🔎 Start listing branch optimization!");
+  console.log("🔎 Start listing branches!");
 
   const octokit = new Octokit({
     auth: access_token,
@@ -38,7 +38,7 @@ async function run(owner, access_token) {
     console.log();
   }
 
-  console.log("✅ Listing branch done!");
+  console.log("✅ Listing branches done!");
 }
 
 async function _getBranches(octokit, owner, repo) {
